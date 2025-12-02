@@ -48,7 +48,6 @@ export default function Media() {
     <section id="media" className="py-16 sm:py-24 md:py-32 bg-zinc-900">
       <div className="max-w-7xl mx-auto px-5 sm:px-6">
         
-        {/* Header */}
         <div className="max-w-3xl mb-12 sm:mb-16">
           <p className="text-sand-500 text-xs sm:text-sm tracking-[0.15em] uppercase mb-3 sm:mb-4">
             Presse & Medien
@@ -61,7 +60,6 @@ export default function Media() {
           </p>
         </div>
 
-        {/* Media Appearances */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
           {appearances.map((item, index) => {
             const IconComponent = item.icon;
@@ -89,7 +87,6 @@ export default function Media() {
           })}
         </div>
 
-        {/* Press Kit */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 p-6 sm:p-8 bg-zinc-800/30 border border-zinc-700/50">
           <div>
             <h3 className="text-xl sm:text-2xl font-light text-white mb-3 sm:mb-4">Presse-Kit</h3>
@@ -128,7 +125,6 @@ export default function Media() {
               <span className="truncate">press@modisawildlife.org</span>
             </a>
             
-            {/* Quick Facts */}
             <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-zinc-700/50">
               <p className="text-zinc-500 text-xs uppercase tracking-wider mb-3 sm:mb-4">Quick Facts</p>
               <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-3 sm:gap-4 text-xs sm:text-sm">
