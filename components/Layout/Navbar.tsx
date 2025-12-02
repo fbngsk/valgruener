@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+
+const navLinks = [
+  { href: '#sirga', label: 'Sirga' },
+  { href: '#modisa', label: 'Modisa' },
+  { href: '#book', label: 'Book' },
+  { href: '#tour', label: 'Tour' },
+  { href: '#media', label: 'Press' },
+];
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,79 +21,67 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Story', href: '#about' },
-    { name: 'Modisa', href: '#modisa' },
-    { name: 'Book', href: '#book' },
-    { name: 'Live Tour 2027', href: '#tour', highlight: true },
-    { name: 'Press', href: '#media' },
-  ];
-
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${
-        isScrolled || isMobileMenuOpen
-          ? 'bg-zinc-950/90 backdrop-blur-md border-zinc-800 py-4'
-          : 'bg-transparent border-transparent py-6'
-      }`}
-    >
-      <div className="container mx-auto px-6 flex justify-between items-center">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-zinc-950/95 backdrop-blur-sm py-4' : 'bg-transparent py-6'
+    }`}>
+      <div className="container mx-auto px-6 flex items-center justify-between">
+        
         {/* Logo */}
-        <a href="#" className="text-3xl font-display font-bold tracking-tighter text-white uppercase italic">
-          Valentin <span className="text-moss-600">Grüner</span>
+        <a href="#" className="font-display font-bold text-xl uppercase tracking-tight text-white">
+          Val Grüner
         </a>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-10">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
+            
+              key={link.href}
               href={link.href}
-              className={`text-sm font-bold tracking-widest uppercase font-sans hover:text-moss-500 transition-colors ${
-                link.highlight ? 'text-moss-500' : 'text-stone-300'
-              }`}
+              className="text-sm font-bold uppercase tracking-widest text-stone-300 hover:text-moss-400 transition-colors"
             >
-              {link.name}
+              {link.label}
             </a>
           ))}
-          <a
+          
             href="https://modisawildlifeproject.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="border border-white/30 hover:border-moss-500 hover:text-moss-500 text-white px-5 py-2 text-xs uppercase tracking-widest font-bold transition-all flex items-center gap-2"
+            className="bg-moss-600 hover:bg-moss-500 text-white px-5 py-2 text-sm font-bold uppercase tracking-widest transition-colors"
           >
-            Support <ArrowUpRight size={14} />
+            Support
           </a>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-white focus:outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden text-white p-2"
+          aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-zinc-950 h-screen border-t border-zinc-800">
-          <div className="flex flex-col p-8 space-y-8 text-center pt-20">
+        <div className="md:hidden bg-zinc-950 border-t border-zinc-800">
+          <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
+              
+                key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-4xl font-display font-bold uppercase ${link.highlight ? 'text-moss-600' : 'text-stone-300'}`}
+                className="text-lg font-bold uppercase tracking-widest text-stone-300 hover:text-moss-400 transition-colors py-2"
               >
-                {link.name}
+                {link.label}
               </a>
             ))}
-            <a
+            
               href="https://modisawildlifeproject.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 bg-moss-600 text-white py-4 px-8 text-lg font-display font-bold uppercase tracking-widest inline-block"
+              className="bg-moss-600 text-white px-5 py-3 text-center font-bold uppercase tracking-widest mt-4"
             >
               Support Modisa
             </a>
