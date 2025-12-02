@@ -1,25 +1,21 @@
 import React from 'react';
 
-interface Props {
+interface SectionHeadingProps {
   eyebrow: string;
   title: string;
   light?: boolean;
-  center?: boolean;
-  large?: boolean;
 }
 
-export const SectionHeading: React.FC<Props> = ({ eyebrow, title, light = false, center = false, large = false }) => {
+export const SectionHeading: React.FC<SectionHeadingProps> = ({ eyebrow, title, light = false }) => {
   return (
-    <div className={`mb-16 ${center ? 'text-center' : 'text-left'} relative z-10`}>
-      <div className="flex items-center gap-4 mb-2 justify-center md:justify-start">
-         {center ? null : <div className="h-[3px] w-8 bg-moss-600"></div>} 
-        <span className={`block text-sm font-bold tracking-[0.2em] uppercase font-sans ${light ? 'text-moss-500' : 'text-moss-600'}`}>
-            {eyebrow}
-        </span>
-         {center ? null : <div className="h-[2px] w-full max-w-[100px] bg-white/10"></div>}
+    <div className="mb-8">
+      <div className="flex items-center gap-4 mb-4">
+        <div className={`w-12 h-0.5 ${light ? 'bg-moss-500' : 'bg-moss-600'}`} />
+        <p className={`font-bold uppercase tracking-[0.3em] text-sm ${light ? 'text-moss-400' : 'text-moss-600'}`}>
+          {eyebrow}
+        </p>
       </div>
-      
-      <h2 className={`font-display font-bold uppercase leading-[0.9] tracking-tight ${large ? 'text-6xl md:text-8xl' : 'text-5xl md:text-6xl'} ${light ? 'text-white' : 'text-zinc-900'}`}>
+      <h2 className={`font-display font-black text-4xl md:text-6xl uppercase tracking-tight ${light ? 'text-white' : 'text-zinc-900'}`}>
         {title}
       </h2>
     </div>
