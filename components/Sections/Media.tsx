@@ -52,32 +52,35 @@ export const Media = () => {
 
         {/* Media Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16 mb-20">
-          {appearances.map((item, index) => (
-            
-              key={index}
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-stone-50 hover:bg-stone-100 p-6 transition-colors border border-stone-200 hover:border-moss-600"
-            >
-              <div className="flex items-start gap-4">
-                <div className="bg-moss-600/10 p-3">
-                  <item.icon className="text-moss-600" size={24} />
+          {appearances.map((item, index) => {
+            const IconComponent = item.icon;
+            return (
+              
+                key={index}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-stone-50 hover:bg-stone-100 p-6 transition-colors border border-stone-200 hover:border-moss-600"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="bg-moss-600/10 p-3">
+                    <IconComponent className="text-moss-600" size={24} />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-widest text-stone-500 mb-1">
+                      {item.type}
+                    </p>
+                    <h3 className="font-display font-bold text-lg uppercase tracking-wide text-zinc-900 group-hover:text-moss-700 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-stone-600 text-sm mt-1">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-stone-500 mb-1">
-                    {item.type}
-                  </p>
-                  <h3 className="font-display font-bold text-lg uppercase tracking-wide text-zinc-900 group-hover:text-moss-700 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-stone-600 text-sm mt-1">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            </a>
-          ))}
+              </a>
+            );
+          })}
         </div>
 
         {/* Press Kit Section */}
@@ -130,7 +133,7 @@ export const Media = () => {
                   Modisa Wildlife Project
                 </p>
                 <a 
-                  href="mailto:fabian@modisa.org?subject=Press%20Inquiry%20-%20Valentin%20Grüner"
+                  href="mailto:fabian@modisa.org?subject=Press%20Inquiry%20-%20Valentin%20Gruener"
                   className="inline-flex items-center gap-2 bg-moss-600 hover:bg-moss-500 text-white px-6 py-3 font-bold uppercase tracking-widest text-sm transition-colors"
                 >
                   <Mail size={16} />
