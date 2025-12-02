@@ -1,75 +1,69 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
+'use client';
 
-export const Hero = () => {
+import { ChevronDown, Play, Heart } from 'lucide-react';
+
+export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ 
-          backgroundImage: 'url(/images/val-sirga-hero.jpg)',
-          backgroundPosition: '50% 30%'
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/images/val-sirga-hero.jpg)'
         }}
       />
       
-      {/* Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/90 via-zinc-950/40 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-zinc-950/30" />
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/60 via-zinc-950/40 to-zinc-950/80" />
       
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-5 sm:px-6 py-20">
-        <div className="max-w-3xl">
-          
-          {/* Eyebrow */}
-          <p className="text-moss-400 uppercase tracking-[0.2em] sm:tracking-[0.3em] text-xs sm:text-sm font-medium mb-4 sm:mb-6">
-            Ranger. Conservationist. Author.
-          </p>
-          
-          {/* Main Headline */}
-          <h1 className="font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase leading-[0.9] tracking-tight text-white mb-4 sm:mb-6">
-            Valentin
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-moss-400 to-moss-600">
-              Grüner
-            </span>
-          </h1>
-          
-          {/* Subtext */}
-          <p className="text-base sm:text-lg md:text-xl text-stone-300 max-w-xl leading-relaxed mb-8 sm:mb-10">
-            15 years in the Kalahari wilderness. Protecting lions, fighting for wild spaces, 
-            and sharing the story that changed everything.
-          </p>
-          
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-            <a 
-              href="#tour" 
-              className="group inline-flex items-center justify-center gap-2 bg-moss-600 hover:bg-moss-500 text-white px-6 sm:px-8 py-3.5 sm:py-4 font-bold uppercase tracking-widest text-xs sm:text-sm transition-all"
-            >
-              Live Tour 2027
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a 
-              href="#sirga" 
-              className="inline-flex items-center justify-center gap-2 border-2 border-white/30 hover:border-white text-white px-6 sm:px-8 py-3.5 sm:py-4 font-bold uppercase tracking-widest text-xs sm:text-sm transition-all hover:bg-white/5"
-            >
-              Meet Sirga
-            </a>
-          </div>
+      <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-6 text-center">
+        {/* Eyebrow */}
+        <p className="text-sand-400 text-xs sm:text-sm tracking-[0.2em] uppercase mb-4 sm:mb-6">
+          Naturschützer · Autor · Botswana
+        </p>
+        
+        {/* Name */}
+        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light text-white mb-4 sm:mb-6 tracking-tight">
+          Valentin Grüner
+        </h1>
+        
+        {/* Tagline */}
+        <p className="text-lg sm:text-xl md:text-2xl text-zinc-300 font-light max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4">
+          Seit über 15 Jahren schütze ich Wildtiere in der Kalahari. 
+          Die Geschichte von Sirga zeigt, was möglich ist.
+        </p>
+        
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
+          <a 
+            href="#documentary" 
+            className="w-full sm:w-auto group flex items-center justify-center gap-2 bg-white text-zinc-900 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-medium hover:bg-sand-100 transition-colors"
+          >
+            <Play size={18} className="sm:w-5 sm:h-5" />
+            <span>Dokumentation ansehen</span>
+          </a>
+          <a 
+            href="#support" 
+            className="w-full sm:w-auto group flex items-center justify-center gap-2 border border-white/30 text-white px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-medium hover:bg-white/10 transition-colors"
+          >
+            <Heart size={18} className="sm:w-5 sm:h-5" />
+            <span>Projekt unterstützen</span>
+          </a>
         </div>
       </div>
-
-      {/* Decorative Element - Hidden on mobile */}
-      <div className="hidden md:block absolute right-8 top-1/2 -translate-y-1/2 z-10">
-        <p className="text-white/20 uppercase tracking-[0.4em] text-xs font-medium" style={{ writingMode: 'vertical-rl' }}>
-          Botswana · Kalahari
-        </p>
-      </div>
-
+      
       {/* Scroll Indicator */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-10">
-        <div className="w-px h-12 sm:h-16 bg-gradient-to-b from-moss-500 to-transparent" />
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <span className="text-zinc-500 text-xs tracking-wider uppercase">Mehr erfahren</span>
+        <div className="w-px h-12 sm:h-16 bg-gradient-to-b from-zinc-500 to-transparent" />
+        <ChevronDown size={20} className="text-zinc-500 animate-bounce" />
+      </div>
+      
+      {/* Decorative Element */}
+      <div className="hidden md:block absolute top-1/2 right-8 lg:right-12 -translate-y-1/2">
+        <div className="w-px h-32 bg-gradient-to-b from-transparent via-sand-500/50 to-transparent" />
       </div>
     </section>
   );
-};
+}
