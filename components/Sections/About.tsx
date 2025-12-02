@@ -1,60 +1,75 @@
 import React from 'react';
 import { SectionHeading } from '../UI/SectionHeading';
-import { Quote } from 'lucide-react';
 
 export const About = () => {
   return (
-    <section id="about" className="py-24 md:py-32 bg-stone-100 text-zinc-900 relative overflow-hidden">
-        {/* Background Texture */}
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-stone-200/50 -skew-x-12 transform origin-top-right"></div>
+    <section id="sirga" className="py-24 md:py-32 bg-sand-50">
+      <div className="container mx-auto px-6">
+        
+        <SectionHeading 
+          eyebrow="The Bond"
+          title="Sirga"
+        />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mt-16">
           
-          {/* Image Composition */}
-          <div className="w-full lg:w-1/2 relative group">
-            <div className="relative z-10 overflow-hidden">
-                <img 
-                    src="https://images.unsplash.com/photo-1510265119258-db115b0e8172?q=80&w=2070&auto=format&fit=crop" 
-                    alt="Valentin in the bush" 
-                    className="w-full h-[700px] object-cover grayscale-[30%] contrast-125 group-hover:grayscale-0 transition-all duration-700"
-                />
-                {/* Overlay Text on Image */}
-                <div className="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-black/80 to-transparent w-full">
-                    <p className="text-white font-display uppercase tracking-widest text-xl">The Kalahari Bond</p>
-                </div>
+          {/* Image */}
+          <div className="relative">
+            <div className="aspect-[4/3] overflow-hidden bg-stone-200">
+              <img 
+                src="/images/val-sirga-portrait.jpg" 
+                alt="Valentin Grüner with Sirga the lioness in the Kalahari"
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+              />
             </div>
-            {/* Hard Graphic Element */}
-            <div className="absolute -top-4 -left-4 w-24 h-24 border-l-4 border-t-4 border-moss-600 z-20"></div>
+            <p className="absolute bottom-4 right-4 text-xs text-stone-500 bg-white/80 px-2 py-1">
+              Photo: Fabian Gieske
+            </p>
           </div>
 
-          {/* Text Content */}
-          <div className="w-full lg:w-1/2 pt-8">
-            <SectionHeading eyebrow="Origin Story" title="Blood, Dust & Wilderness" />
+          {/* Content */}
+          <div>
+            <p className="text-lg md:text-xl text-stone-700 leading-relaxed mb-6">
+              In 2012, a three-week-old lion cub was abandoned by her pride in the Kalahari. 
+              She weighed 2.5 kilograms. Her chances of survival were close to zero.
+            </p>
             
-            <div className="space-y-8 text-zinc-700 text-lg leading-relaxed font-sans font-light">
-              <p className="first-letter:text-5xl first-letter:font-display first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:mt-[-6px]">
-                It wasn't a holiday. It was an escape that turned into a destiny. 
-                Stranded in the vastness of Botswana, I found clarity in the chaos of nature.
-              </p>
-              <p>
-                Raising <strong className="text-zinc-900 font-bold border-b-2 border-moss-500">Sirga</strong>—a lioness rejected by her pride—taught me more about humanity than civilization ever could. 
-                We hunt together, we walk together, we exist as equals in a land that shows no mercy.
-              </p>
-              <p>
-                This isn't just about cuddling lions. It's about the brutal reality of conservation. 
-                The <a href="#modisa" className="text-moss-600 font-bold hover:text-black transition-colors">Modisa Wildlife Project</a> is our answer to the disappearing wild. We stand between the wilderness and its extinction.
-              </p>
-            </div>
+            <p className="text-lg md:text-xl text-stone-700 leading-relaxed mb-6">
+              I raised her by hand. Bottle-fed her every two hours. Slept next to her in the dirt. 
+              Today, Sirga weighs 180 kilograms. She's 13 years old. And we still walk together—
+              no fences, no tricks. Just respect.
+            </p>
 
-            <div className="mt-12 bg-white p-8 border-l-4 border-zinc-900 shadow-xl">
-                <Quote className="text-moss-500 mb-4 opacity-50" size={40} />
-                <p className="font-display text-2xl md:text-3xl uppercase leading-tight text-zinc-900">
-                    "Wilderness is not a luxury. It is a necessity of the human spirit."
-                </p>
+            <p className="text-lg md:text-xl text-stone-700 leading-relaxed mb-8">
+              She can't be released into the wild. Lions raised by humans don't survive out there. 
+              So I built her a 2,000-hectare reserve. Her own piece of Kalahari. 
+              It's the least I could do.
+            </p>
+
+            {/* Quote */}
+            <blockquote className="border-l-4 border-moss-600 pl-6 py-2 mb-10">
+              <p className="text-xl md:text-2xl font-display italic text-stone-800">
+                "She's not my pet. She's my teacher."
+              </p>
+              <cite className="text-sm text-stone-500 mt-2 block">— Valentin Grüner</cite>
+            </blockquote>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-6">
+              <div>
+                <p className="font-display font-black text-3xl md:text-4xl text-moss-700">13+</p>
+                <p className="text-xs uppercase tracking-widest text-stone-500 mt-1">Years Together</p>
+              </div>
+              <div>
+                <p className="font-display font-black text-3xl md:text-4xl text-moss-700">180</p>
+                <p className="text-xs uppercase tracking-widest text-stone-500 mt-1">Kilograms</p>
+              </div>
+              <div>
+                <p className="font-display font-black text-3xl md:text-4xl text-moss-700">2000</p>
+                <p className="text-xs uppercase tracking-widest text-stone-500 mt-1">Hectare Reserve</p>
+              </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
