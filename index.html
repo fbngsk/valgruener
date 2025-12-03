@@ -19,7 +19,7 @@
       background-color: #121214; 
       color: #a1a1aa; 
       line-height: 1.7; 
-      /* Adding a subtle grain texture via CSS for a rugged feel */
+      /* Rugged texture overlay */
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
     }
     
@@ -27,7 +27,7 @@
     :root {
       --sand: #d4a574;
       --sand-dark: #b88a5c;
-      --rust: #c2410c; /* New accent color: Kalahari red/orange */
+      --rust: #c2410c; 
       --zinc-950: #09090b;
       --zinc-900: #18181b;
       --zinc-800: #27272a;
@@ -37,7 +37,7 @@
       --white: #ffffff;
     }
 
-    /* Typography Overrides */
+    /* Typography */
     h1, h2, h3, h4, .nav-links a, .btn, .hero-label, .section-label, .stat-number {
       font-family: 'Oswald', sans-serif;
       text-transform: uppercase;
@@ -65,10 +65,9 @@
       .nav-links { display: none; }
     }
 
-    /* Hero - More Cinematic */
+    /* Hero */
     .hero {
       min-height: 100vh; display: flex; align-items: center; position: relative;
-      /* Darker gradient for more drama */
       background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(18,18,20,1) 100%), 
                   linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 100%),
                   url('images/val-sirga-hero.jpg') center/cover no-repeat;
@@ -76,68 +75,46 @@
     .hero-content { max-width: 800px; padding-top: 60px; position: relative; z-index: 2; }
     
     .hero-label { 
-      color: var(--rust); 
-      font-size: 14px; 
-      letter-spacing: 4px; 
-      font-weight: 700;
-      margin-bottom: 16px; 
-      display: inline-block;
-      background: rgba(0,0,0,0.6);
-      padding: 4px 12px;
+      color: var(--rust); font-size: 14px; letter-spacing: 4px; font-weight: 700;
+      margin-bottom: 16px; display: inline-block;
+      background: rgba(0,0,0,0.6); padding: 4px 12px;
       border-left: 3px solid var(--rust);
     }
 
     .hero h1 { 
-      color: var(--white); 
-      font-size: clamp(48px, 10vw, 90px); 
-      font-weight: 700; 
-      line-height: 1; 
-      margin-bottom: 24px; 
+      color: var(--white); font-size: clamp(48px, 10vw, 90px); 
+      font-weight: 700; line-height: 1; margin-bottom: 24px; 
       text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
     }
     
     .hero p { 
-      font-size: 18px; 
-      color: var(--zinc-400); 
-      margin-bottom: 40px; 
-      max-width: 550px; 
-      border-left: 1px solid var(--zinc-600);
-      padding-left: 20px;
+      font-size: 18px; color: var(--zinc-400); margin-bottom: 40px; 
+      max-width: 550px; border-left: 1px solid var(--zinc-600); padding-left: 20px;
     }
 
-    /* Buttons - More Rugged */
+    /* Buttons */
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       padding: 16px 32px; font-size: 15px; text-decoration: none;
       transition: all 0.3s; cursor: pointer; border: none; font-weight: 500; letter-spacing: 1px;
     }
     .btn-primary { 
-      background: var(--sand); 
-      color: var(--zinc-950); 
+      background: var(--sand); color: var(--zinc-950); 
       clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
     }
-    .btn-primary:hover { 
-      background: var(--white); 
-      transform: translateY(-2px);
-    }
+    .btn-primary:hover { background: var(--white); transform: translateY(-2px); }
     
     .btn-outline { 
-      border: 1px solid var(--zinc-600); 
-      color: var(--white); 
-      background: transparent; 
-      margin-left: 16px; 
+      border: 1px solid var(--zinc-600); color: var(--white); background: transparent; margin-left: 16px; 
     }
-    .btn-outline:hover { 
-      border-color: var(--rust); 
-      color: var(--rust); 
-    }
+    .btn-outline:hover { border-color: var(--rust); color: var(--rust); }
 
     /* Sections General */
     section { padding: 120px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
     .section-label { color: var(--rust); font-size: 13px; letter-spacing: 3px; margin-bottom: 10px; font-weight: 700; }
     h2 { color: var(--white); font-size: clamp(32px, 6vw, 56px); font-weight: 500; margin-bottom: 30px; letter-spacing: -1px; }
 
-    /* About - Raw & Authentic */
+    /* About */
     .about { background: var(--zinc-950); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     
@@ -148,8 +125,7 @@
     }
     .about-image img { 
       width: 100%; height: auto; display: block; 
-      position: relative; z-index: 1; 
-      filter: grayscale(30%) contrast(110%);
+      position: relative; z-index: 1; filter: grayscale(30%) contrast(110%);
     }
 
     .about-stats { 
@@ -159,26 +135,22 @@
     .stat-number { color: var(--sand); font-size: 42px; line-height: 1; font-weight: 400; }
     .stat-label { color: var(--zinc-500); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; }
 
-    /* Mission - Tactical Cards */
+    /* Mission */
     .mission { background: var(--zinc-900); }
     .mission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
     
     .mission-card { 
       background: linear-gradient(145deg, #1e1e21, #18181b); 
-      padding: 40px 30px; 
-      border-top: 3px solid var(--zinc-700);
+      padding: 40px 30px; border-top: 3px solid var(--zinc-700);
       transition: transform 0.3s ease;
     }
     .mission-card:hover { transform: translateY(-5px); border-color: var(--rust); }
-    
     .mission-card h3 { color: var(--white); font-size: 22px; margin: 20px 0 12px; }
     .mission-icon { font-size: 32px; margin-bottom: 20px; display: block; filter: grayscale(100%); transition: 0.3s; }
-    .mission-card:hover .mission-icon { filter: grayscale(0); }
 
-    /* Speaking - Dynamic List */
+    /* Speaking */
     .speaking { background: var(--zinc-950); }
     .speaking-content { display: grid; grid-template-columns: 1.5fr 1fr; gap: 80px; }
-    
     .topic-list { list-style: none; margin-top: 40px; }
     .topic-list li { 
       padding: 20px 0; border-bottom: 1px solid var(--zinc-800); 
@@ -186,42 +158,41 @@
       font-size: 18px; color: var(--zinc-300);
     }
     .topic-list li::before { 
-      content: "0" counter(list-item); 
-      counter-increment: list-item;
+      content: "0" counter(list-item); counter-increment: list-item;
       color: var(--rust); font-family: 'Oswald'; font-weight: 700;
     }
     .topic-list { counter-reset: list-item; }
-
     .speaking-cta { 
       background: var(--zinc-800); padding: 50px 40px; 
       display: flex; flex-direction: column; justify-content: center;
       background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 2px, transparent 2px, transparent 10px);
     }
 
-    /* Media - Grid Overlay */
+    /* Media */
     .media { background: var(--zinc-900); }
     .media-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 50px; }
     
+    /* Make cards clickable anchors or divs, style them same */
     .media-card { 
       background: var(--zinc-950); padding: 30px; 
       border: 1px solid var(--zinc-800); 
-      transition: all 0.3s; 
-      position: relative; overflow: hidden;
+      transition: all 0.3s; position: relative; overflow: hidden;
+      display: block; text-decoration: none; /* For links */
     }
     .media-card::after {
       content: ''; position: absolute; bottom: 0; left: 0; width: 0%; height: 2px; background: var(--sand); transition: 0.4s;
     }
     .media-card:hover::after { width: 100%; }
-    .media-card:hover { border-color: var(--zinc-600); }
+    .media-card:hover { border-color: var(--zinc-600); transform: translateY(-2px); }
     
-    .media-type { color: var(--rust); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
-    .media-title { color: var(--white); font-size: 18px; font-weight: 500; margin: 10px 0 6px; font-family: 'Montserrat'; }
+    .media-type { color: var(--rust); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 4px; }
+    .media-title { color: var(--white); font-size: 18px; font-weight: 500; margin: 10px 0 6px; font-family: 'Montserrat'; line-height: 1.3; }
+    .media-outlet { color: var(--zinc-500); font-size: 14px; }
 
-    /* Support - Impact */
+    /* Support */
     .support { 
       background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url('images/val-sirga-hero.jpg') center/cover no-repeat fixed; 
-      text-align: center;
-      padding: 160px 0;
+      text-align: center; padding: 160px 0;
     }
     .support-content { max-width: 700px; margin: 0 auto; }
     .support h2 { font-size: clamp(36px, 5vw, 64px); margin-bottom: 24px; }
@@ -263,7 +234,7 @@
         <a href="#mission">Mission</a>
         <a href="#speaking">Speaking</a>
         <a href="#media">Media</a>
-        <a href="#support">Join the Pride</a>
+        <a href="https://patreon.com/sirga" target="_blank" style="color: var(--sand);">Join the Pride</a>
       </div>
     </div>
   </nav>
@@ -275,7 +246,7 @@
         <h1>Into the Heart<br>of the Kalahari</h1>
         <p>A decade in the wild. A lifelong bond with a lioness. Standing guard over Botswana’s last frontiers.</p>
         <div class="btn-group">
-          <a href="#support" class="btn btn-primary">Support the Mission</a>
+          <a href="https://patreon.com/sirga" target="_blank" class="btn btn-primary">Support the Mission</a>
           <a href="#about" class="btn btn-outline">Read the Story</a>
         </div>
       </div>
@@ -366,7 +337,7 @@
     <div class="container">
       <div style="display: flex; justify-content: space-between; align-items: flex-end;">
         <div>
-          <p class="section-label">Coverage</p>
+          <p class="section-label">Coverage & Publications</p>
           <h2>Featured In</h2>
         </div>
       </div>
@@ -377,20 +348,25 @@
           <h4 class="media-title">Saving Sirga</h4>
           <p class="media-outlet">Netflix / Nat Geo Wild</p>
         </div>
+
+        <a href="https://www.rowohlt.de/buch/valentin-gruener-loewenland-9783499007804?srsltid=AfmBOopAmvvb0Hrs4KFOp0pqfqiMiRK5aNeGia7lZ0dUNzJWSPSPzaFy" target="_blank" class="media-card">
+          <span class="media-type">Book</span>
+          <h4 class="media-title">Löwenland</h4>
+          <p class="media-outlet">Rowohlt (German Edition)</p>
+          <span style="font-size: 12px; color: var(--sand); margin-top: 8px; display: block;">Buy Now →</span>
+        </a>
+
+        <a href="https://open.spotify.com/show/2CfVE9anGovj9QrVxuEpdp?si=0e056f4c32ea4a2d" target="_blank" class="media-card">
+          <span class="media-type">Podcast</span>
+          <h4 class="media-title">Kalahari Diaries</h4>
+          <p class="media-outlet">Spotify</p>
+          <span style="font-size: 12px; color: var(--sand); margin-top: 8px; display: block;">Listen Now →</span>
+        </a>
+
         <div class="media-card">
           <span class="media-type">TV Feature</span>
           <h4 class="media-title">Stern TV</h4>
           <p class="media-outlet">RTL Germany</p>
-        </div>
-        <div class="media-card">
-          <span class="media-type">Editorial</span>
-          <h4 class="media-title">The Lion Man</h4>
-          <p class="media-outlet">GEO Magazine</p>
-        </div>
-        <div class="media-card">
-          <span class="media-type">Series</span>
-          <h4 class="media-title">Kalahari Diaries</h4>
-          <p class="media-outlet">Modisa Wildlife Project</p>
         </div>
       </div>
     </div>
@@ -402,7 +378,7 @@
         <p class="section-label">Get Involved</p>
         <h2>Join the Pride</h2>
         <p>Conservation is a collective effort. Your support directly funds the food, security, and research needed to keep the Kalahari wild.</p>
-        <a href="https://www.patreon.com/sirgathelioness" target="_blank" class="btn btn-primary">Become a Patron</a>
+        <a href="https://patreon.com/sirga" target="_blank" class="btn btn-primary">Become a Patron</a>
       </div>
     </div>
   </section>
@@ -423,9 +399,9 @@
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
-          <a href="https://modisawildlife.org" target="_blank">Modisa Wildlife Project</a>
-          <a href="https://www.patreon.com/sirgathelioness" target="_blank">Patreon</a>
-          <a href="https://www.instagram.com/sirgathelioness" target="_blank">Instagram</a>
+          <a href="https://modisawildlifeproject.com" target="_blank">Modisa Wildlife Project</a>
+          <a href="https://patreon.com/sirga" target="_blank">Patreon (Support)</a>
+          <a href="https://www.instagram.com/valgruener" target="_blank">Instagram (@valgruener)</a>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
