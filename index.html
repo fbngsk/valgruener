@@ -16,13 +16,13 @@
     html { scroll-behavior: smooth; }
     
     :root {
-      /* The "Acid Lime" Palette */
-      --lime: #84cc16;       /* Vibrant green for primary actions */
+      /* Acid Lime Palette */
+      --lime: #84cc16;       
       --lime-hover: #65a30d;
-      --black: #050505;      /* Deepest black background */
-      --zinc-900: #121212;   /* Card backgrounds */
-      --zinc-800: #27272a;   /* Borders/Separators */
-      --zinc-400: #a1a1aa;   /* Muted text */
+      --black: #050505;      
+      --zinc-900: #121212;   
+      --zinc-800: #27272a;   
+      --zinc-400: #a1a1aa;   
       --white: #ffffff;
     }
 
@@ -32,10 +32,11 @@
       color: var(--zinc-400); 
       line-height: 1.6; 
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* TYPOGRAPHY */
-    h1, h2, h3, h4, .nav-link, .btn, .label-text, .stat-number, .city-name {
+    h1, h2, h3, h4, .nav-link, .btn, .label-text, .stat-number, .city-name, .media-headline {
       font-family: 'Oswald', sans-serif;
       text-transform: uppercase;
     }
@@ -50,16 +51,10 @@
       position: relative;
     }
     
-    /* Decorative line next to labels */
     .label-text::before {
-      content: '';
-      display: inline-block;
-      width: 20px;
-      height: 2px;
-      background: var(--lime);
-      vertical-align: middle;
-      margin-right: 10px;
-      transform: translateY(-1px);
+      content: ''; display: inline-block; width: 20px; height: 2px;
+      background: var(--lime); vertical-align: middle;
+      margin-right: 10px; transform: translateY(-1px);
     }
 
     h2 {
@@ -78,106 +73,76 @@
     /* NAVIGATION */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(5,5,5,0.85); backdrop-filter: blur(10px);
-      padding: 20px 0;
+      background: rgba(5,5,5,0.95); backdrop-filter: blur(10px);
+      padding: 15px 0;
       border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     nav .container { display: flex; justify-content: space-between; align-items: center; }
     
     .logo { 
-      font-family: 'Oswald', sans-serif; 
-      font-weight: 700; 
-      font-size: 20px; 
-      color: var(--white); 
-      text-decoration: none; 
-      letter-spacing: 1px;
-      font-style: italic; /* Slight italic for dynamic feel */
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 22px; 
+      color: var(--white); text-decoration: none; letter-spacing: 1px; font-style: italic;
+      z-index: 1001; /* Above mobile menu */
     }
     .logo span { color: var(--lime); }
 
-    .nav-links { display: flex; gap: 32px; }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
     .nav-link { 
-      color: var(--white); 
-      text-decoration: none; 
-      font-size: 13px; 
-      letter-spacing: 1px; 
-      font-weight: 500; 
-      transition: color 0.3s; 
+      color: var(--white); text-decoration: none; font-size: 13px; 
+      letter-spacing: 1px; font-weight: 500; transition: color 0.3s; 
     }
     .nav-link:hover { color: var(--lime); }
-    .support-link {
-      border: 1px solid var(--zinc-800);
-      padding: 6px 16px;
-      border-radius: 2px;
-    }
-    .support-link:hover { border-color: var(--lime); }
+    .support-link { border: 1px solid var(--zinc-800); padding: 6px 16px; border-radius: 2px; }
+    .support-link:hover { border-color: var(--lime); color: var(--lime); }
 
-    @media(max-width: 768px) { .nav-links { display: none; } }
+    /* Mobile Menu Toggle */
+    .menu-toggle { display: none; cursor: pointer; z-index: 1001; }
+    .bar { width: 25px; height: 2px; background: var(--white); margin: 5px 0; transition: 0.4s; }
 
     /* BUTTONS */
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       padding: 14px 28px; font-size: 14px; text-decoration: none;
       transition: all 0.3s; cursor: pointer; border: none; font-weight: 600; letter-spacing: 1px;
-      border-radius: 2px;
+      border-radius: 2px; white-space: nowrap;
     }
-    .btn-lime { 
-      background: var(--lime); color: var(--black); 
-    }
+    .btn-lime { background: var(--lime); color: var(--black); }
     .btn-lime:hover { background: var(--lime-hover); }
-    
-    .btn-outline { 
-      border: 1px solid var(--zinc-800); color: var(--white); background: transparent; 
-    }
+    .btn-outline { border: 1px solid var(--zinc-800); color: var(--white); background: transparent; }
     .btn-outline:hover { border-color: var(--white); }
 
     /* HERO */
     .hero {
-      min-height: 90vh;
-      display: flex; align-items: center;
-      background: linear-gradient(90deg, #050505 0%, rgba(5,5,5,0.8) 50%, rgba(5,5,5,0.2) 100%),
-                  url('images/val-sirga-hero.jpg') center/cover no-repeat; /* Replace with your image */
+      min-height: 95vh; display: flex; align-items: center;
+      background: linear-gradient(180deg, rgba(5,5,5,0.4) 0%, rgba(5,5,5,1) 100%),
+                  linear-gradient(90deg, rgba(5,5,5,0.8) 0%, rgba(5,5,5,0.2) 100%),
+                  url('images/val-sirga-hero.jpg') center/cover no-repeat;
       padding-top: 80px;
     }
-    .hero-content { max-width: 600px; }
+    .hero-content { max-width: 650px; }
     .hero-label { color: var(--lime); font-size: 12px; letter-spacing: 2px; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; }
     .hero h1 { 
-      font-size: clamp(48px, 8vw, 84px); 
-      color: var(--white); 
-      line-height: 0.9; 
-      margin-bottom: 24px; 
-      font-weight: 700;
+      font-size: clamp(48px, 9vw, 90px); color: var(--white); line-height: 0.9; 
+      margin-bottom: 24px; font-weight: 700;
     }
-    .hero-buttons { display: flex; gap: 16px; margin-top: 40px; }
+    .hero-buttons { display: flex; gap: 16px; margin-top: 40px; flex-wrap: wrap; }
 
-    /* THE BOND (SIRGA) */
+    /* SECTIONS */
     .bond-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .bond-img { 
-      background: #1a1a1a; 
-      aspect-ratio: 4/3; 
-      width: 100%; 
-      position: relative;
-    }
+    .bond-img { background: #1a1a1a; aspect-ratio: 4/3; width: 100%; position: relative; }
     .bond-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%); }
     .quote { 
-      border-left: 2px solid var(--lime); 
-      padding-left: 16px; 
-      margin: 30px 0;
-      color: var(--zinc-400);
-      font-style: italic;
+      border-left: 2px solid var(--lime); padding-left: 16px; margin: 30px 0;
+      color: var(--zinc-400); font-style: italic;
     }
-    .stats-row { 
-      display: flex; gap: 40px; margin-top: 40px; border-top: 1px solid var(--zinc-800); padding-top: 30px; 
-    }
+    .stats-row { display: flex; gap: 40px; margin-top: 40px; border-top: 1px solid var(--zinc-800); padding-top: 30px; }
     .stat-val { font-size: 24px; color: var(--lime); font-weight: 700; display: block; line-height: 1; }
     .stat-key { font-size: 10px; color: var(--zinc-500); text-transform: uppercase; letter-spacing: 1px; }
 
-    /* MODISA PROJECT */
+    /* MODISA */
     .modisa-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 40px 0; }
     .feature-card { 
-      background: var(--zinc-900); 
-      padding: 30px; 
-      border: 1px solid var(--zinc-800);
+      background: var(--zinc-900); padding: 30px; border: 1px solid var(--zinc-800);
       transition: transform 0.3s;
     }
     .feature-card:hover { border-color: var(--lime); transform: translateY(-5px); }
@@ -185,87 +150,114 @@
     .feature-card h3 { color: var(--white); font-size: 18px; margin-bottom: 12px; }
     .feature-card p { font-size: 14px; color: var(--zinc-400); margin: 0; }
 
-    /* BOOK SECTION */
+    /* BOOK */
     .book-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
     .book-visual {
-      background: var(--zinc-900);
-      aspect-ratio: 3/4;
+      background: var(--zinc-900); aspect-ratio: 3/4;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      border: 1px solid var(--zinc-800);
+      border: 1px solid var(--zinc-800); text-align: center; padding: 20px;
     }
     .book-icon { font-size: 48px; color: var(--lime); margin-bottom: 16px; }
     .bestseller-badge { background: #facc15; color: #000; font-size: 10px; font-weight: 700; padding: 4px 8px; margin-top: 12px; text-transform: uppercase; }
+    .book-buttons { margin-top: 30px; display: flex; gap: 16px; flex-wrap: wrap; }
 
-    /* LIVE TOUR 2027 */
+    /* TOUR */
     .tour-section { background: #080808; }
     .tour-header { text-align: center; margin-bottom: 60px; }
     .tour-badge { 
-      background: var(--lime); color: var(--black); 
-      display: inline-block; padding: 4px 12px; 
-      font-size: 12px; font-weight: 700; 
-      margin-bottom: 16px;
+      background: var(--lime); color: var(--black); display: inline-block; padding: 4px 12px; 
+      font-size: 12px; font-weight: 700; margin-bottom: 16px;
     }
-    .tour-title { font-size: 64px; line-height: 0.9; margin-bottom: 10px; color: var(--white); }
-    .tour-subtitle { font-family: 'Oswald'; font-weight: 700; font-size: 64px; line-height: 0.9; color: transparent; -webkit-text-stroke: 1px var(--zinc-800); opacity: 0.5; }
-    
+    .tour-title { font-size: clamp(40px, 8vw, 64px); line-height: 0.9; margin-bottom: 10px; color: var(--white); }
+    .tour-subtitle { 
+      font-family: 'Oswald'; font-weight: 700; font-size: clamp(40px, 8vw, 64px); line-height: 0.9; 
+      color: transparent; -webkit-text-stroke: 1px var(--zinc-800); opacity: 0.5; 
+    }
     .tour-list { max-width: 900px; margin: 0 auto; }
     .tour-row { 
-      display: grid; grid-template-columns: 1fr 2fr 1.5fr auto; 
-      align-items: center;
-      padding: 24px 0; border-bottom: 1px solid var(--zinc-800);
-      transition: background 0.2s;
+      display: grid; grid-template-columns: 1fr 2fr 1.5fr auto; align-items: center;
+      padding: 24px 0; border-bottom: 1px solid var(--zinc-800); transition: background 0.2s;
     }
     .tour-row:hover { background: rgba(255,255,255,0.02); }
-    .tour-date { display: flex; flex-direction: column; }
     .date-day { font-size: 24px; color: var(--white); font-family: 'Oswald'; font-weight: 700; }
     .date-month { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
     .city-name { font-size: 24px; color: var(--white); }
     .venue-name { font-size: 13px; color: var(--zinc-500); text-transform: uppercase; letter-spacing: 1px; }
     .btn-ticket { 
-      border: 1px solid var(--zinc-700); padding: 8px 24px; 
-      font-size: 12px; color: var(--white); text-decoration: none; text-transform: uppercase;
-      transition: all 0.3s;
+      border: 1px solid var(--zinc-700); padding: 8px 24px; font-size: 12px; color: var(--white); 
+      text-decoration: none; text-transform: uppercase; transition: all 0.3s;
     }
     .btn-ticket:hover { background: var(--lime); color: var(--black); border-color: var(--lime); }
 
-    /* IN THE MEDIA (White Section) */
+    /* MEDIA */
     .media-section { background: #f5f5f5; color: #111; padding-top: 80px; padding-bottom: 80px; }
-    .media-section h2 { color: #111; text-align: center; font-size: 48px; margin-bottom: 50px; }
-    .media-section .label-text { color: var(--lime-hover); }
+    .media-section h2 { color: #111; text-align: center; font-size: clamp(32px, 6vw, 48px); margin-bottom: 50px; }
     .media-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    
     .media-card {
-      background: var(--white);
-      padding: 30px;
-      border: 1px solid #e5e5e5;
-      display: flex; flex-direction: column; justify-content: space-between;
-      min-height: 200px;
-      text-decoration: none;
-      transition: box-shadow 0.3s;
+      background: var(--white); padding: 30px; border: 1px solid #e5e5e5;
+      display: flex; flex-direction: column; justify-content: space-between; min-height: 220px;
+      text-decoration: none; transition: box-shadow 0.3s;
     }
     .media-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
     .media-tag { font-size: 10px; color: var(--lime-hover); font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
-    .media-headline { font-family: 'Oswald'; font-size: 20px; font-weight: 600; color: #111; line-height: 1.2; }
+    .media-headline { font-size: 20px; font-weight: 600; color: #111; line-height: 1.2; }
     .media-sub { font-size: 13px; color: #666; margin-top: 8px; }
-    .press-card { background: #111; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+    .press-card { background: #111; color: #fff; align-items: center; text-align: center; justify-content: center;}
     .press-card h3 { color: #fff; margin-bottom: 16px; }
 
     /* FOOTER */
     footer { background: #000; padding: 60px 0; border-top: 1px solid var(--zinc-900); font-size: 12px; color: var(--zinc-500); }
-    .footer-content { display: flex; justify-content: space-between; align-items: center; }
-    .newsletter-box { display: flex; margin-top: 20px; }
-    .newsletter-input { background: var(--zinc-900); border: 1px solid var(--zinc-800); color: #fff; padding: 10px; width: 250px; font-family: 'Inter'; font-size: 12px; }
+    .footer-content { display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 40px; }
+    .newsletter-box { display: flex; margin-top: 20px; width: 100%; }
+    .newsletter-input { background: var(--zinc-900); border: 1px solid var(--zinc-800); color: #fff; padding: 12px; width: 100%; font-family: 'Inter'; font-size: 12px; }
     .newsletter-btn { background: #fff; color: #000; border: none; padding: 0 20px; font-family: 'Oswald'; font-weight: 600; cursor: pointer; }
 
-    /* RESPONSIVE */
-    @media(max-width: 900px) {
-      .bond-grid, .book-container, .tour-row { grid-template-columns: 1fr; gap: 30px; }
-      .modisa-grid, .media-grid { grid-template-columns: 1fr; }
-      .tour-row { text-align: center; gap: 10px; }
-      .btn-ticket { width: 100%; margin-top: 10px; }
-      .hero { text-align: center; justify-content: center; }
-      .hero-buttons { justify-content: center; }
-      .footer-content { flex-direction: column; gap: 40px; text-align: center; }
+    /* --- MOBILE & TABLET OPTIMIZATIONS --- */
+    @media (max-width: 900px) {
+      /* General Layout Changes */
+      .bond-grid, .book-container { grid-template-columns: 1fr; gap: 40px; }
+      .modisa-grid { grid-template-columns: 1fr; }
+      .media-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-content { grid-template-columns: 1fr; text-align: center; }
+      .newsletter-box { justify-content: center; }
+      
+      /* Tour Section Tablet */
+      .tour-row { grid-template-columns: 1fr 2fr auto; }
+      .venue-name { display: block; margin-top: 4px; }
+    }
+
+    @media (max-width: 768px) {
+      /* Navigation (Hamburger) */
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
+        background: var(--zinc-900); flex-direction: column; align-items: flex-start;
+        padding: 100px 40px; transition: 0.3s ease-in-out; border-left: 1px solid var(--zinc-800);
+      }
+      .nav-links.active { right: 0; box-shadow: -10px 0 30px rgba(0,0,0,0.5); }
+      .nav-link { font-size: 24px; margin-bottom: 20px; }
+
+      /* Buttons Mobile */
+      .btn { width: 100%; text-align: center; }
+      .hero-buttons, .book-buttons, .modisa-grid + div { flex-direction: column; width: 100%; }
+      .modisa-grid + div { display: flex; flex-direction: column; } /* Fix Modisa buttons */
+
+      /* Tour Section Mobile (Stacked) */
+      .tour-row { 
+        display: flex; flex-direction: column; align-items: flex-start; 
+        gap: 12px; padding: 30px 0; 
+      }
+      .tour-date { flex-direction: row; align-items: baseline; gap: 8px; margin-bottom: 5px; }
+      .btn-ticket { width: 100%; margin-top: 10px; text-align: center; padding: 12px; }
+
+      /* Media Grid Mobile */
+      .media-grid { grid-template-columns: 1fr; }
+
+      /* Typography & Spacing */
+      section { padding: 60px 0; }
+      .hero h1 { font-size: 56px; }
+      .stats-row { justify-content: space-between; gap: 10px; }
+      .footer-content { gap: 40px; }
     }
   </style>
 </head>
@@ -274,13 +266,20 @@
   <nav>
     <div class="container">
       <a href="#" class="logo">VALENTIN <span>GRÜNER</span></a>
-      <div class="nav-links">
-        <a href="#story" class="nav-link">STORY</a>
-        <a href="#modisa" class="nav-link">MODISA</a>
-        <a href="#book" class="nav-link">BOOK</a>
-        <a href="#tour" class="nav-link" style="color: var(--lime);">LIVE TOUR 2027</a>
-        <a href="#press" class="nav-link">PRESS</a>
-        <a href="#support" class="nav-link support-link">SUPPORT ↗</a>
+      
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#story" class="nav-link" onclick="toggleMenu()">STORY</a>
+        <a href="#modisa" class="nav-link" onclick="toggleMenu()">MODISA</a>
+        <a href="#book" class="nav-link" onclick="toggleMenu()">BOOK</a>
+        <a href="#tour" class="nav-link" style="color: var(--lime);" onclick="toggleMenu()">LIVE TOUR 2027</a>
+        <a href="#press" class="nav-link" onclick="toggleMenu()">PRESS</a>
+        <a href="#support" class="nav-link support-link" onclick="toggleMenu()">SUPPORT ↗</a>
       </div>
     </div>
   </nav>
@@ -325,7 +324,7 @@
             </div>
             <div>
               <span class="stat-val">2000</span>
-              <span class="stat-key">Hectare Reserve</span>
+              <span class="stat-key">Hectares</span>
             </div>
           </div>
         </div>
@@ -357,7 +356,7 @@
         </div>
       </div>
 
-      <div style="display: flex; gap: 16px;">
+      <div style="display: flex; gap: 16px;" class="modisa-buttons">
         <a href="https://modisawildlifeproject.com" target="_blank" class="btn btn-lime">MODISA WEBSITE ↗</a>
         <a href="https://patreon.com/sirga" target="_blank" class="btn btn-outline">SUPPORT ON PATREON</a>
       </div>
@@ -380,9 +379,8 @@
           <p>From Lake Constance to the Kalahari. 15 years of adventure, hardship, and an unbreakable bond with a lioness named Sirga.</p>
           <p>This book doesn't sugarcoat anything. Fire, drought, bureaucracy, near-death experiences — it's all in there. But also: the silence of the desert at night. The trust of a 180-kilogram predator. The moments that made it all worth it.</p>
           <p style="font-size: 14px; color: var(--zinc-500);">Published in German. 320 pages of Kalahari reality.</p>
-          <div style="margin-top: 30px; display: flex; gap: 16px;">
-            <a href="https://amzn.to/example" target="_blank" class="btn btn-outline">AMAZON ↗</a>
-            <a href="https://thalia.de/example" target="_blank" class="btn btn-outline">THALIA ↗</a>
+          <div class="book-buttons">
+            <a href="https://www.rowohlt.de/buch/valentin-gruener-loewenland-9783499007804" target="_blank" class="btn btn-outline">BUY BOOK ↗</a>
           </div>
         </div>
       </div>
@@ -549,10 +547,14 @@
             <input type="email" placeholder="Email Address" class="newsletter-input">
             <button type="submit" class="newsletter-btn">SUBSCRIBE</button>
           </form>
+          <div style="margin-top: 20px; font-size: 16px;">
+            <a href="https://www.instagram.com/valgruener" target="_blank" style="color: #fff; margin-right: 15px; text-decoration: none;">Instagram ↗</a>
+            <a href="https://patreon.com/sirga" target="_blank" style="color: var(--lime); text-decoration: none;">Patreon ↗</a>
+          </div>
         </div>
       </div>
       
-      <div style="margin-top: 60px; display: flex; justify-content: space-between; border-top: 1px solid #222; padding-top: 20px;">
+      <div style="margin-top: 60px; display: flex; justify-content: space-between; border-top: 1px solid #222; padding-top: 20px; flex-wrap: wrap; gap: 20px;">
         <div>© 2025 VALENTIN GRÜNER.</div>
         <div style="display: flex; gap: 20px;">
           <span>IMPRINT</span>
@@ -562,6 +564,13 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('active');
+    }
+  </script>
 
 </body>
 </html>
